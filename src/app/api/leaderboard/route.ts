@@ -1,0 +1,20 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export async function GET(request: NextRequest) {
+  try {
+    const leaderboard = await prisma.user.findMany({
+      orderBy: { money: 'desc' },
+      select: { username: true, money: true },
+    });
+
+    return NextResponse.json(leaderboard);
+  } catch (error) {
+    console.error('Error in /api/leaderboard:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  } finally {
+    await prisma.$disconnect();
+  }
+}
