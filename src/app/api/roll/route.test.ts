@@ -31,7 +31,6 @@ describe('POST /api/roll', () => {
     prisma.user.findUnique.mockResolvedValue(mockUser);
     prisma.user.update.mockResolvedValue(mockUpdatedUser);
 
-    // Mock Math.random to return a value that selects 'Double' (index 0)
     jest.spyOn(global.Math, 'random').mockReturnValue(0);
 
     const response = await POST(mockRequest);
@@ -47,7 +46,6 @@ describe('POST /api/roll', () => {
     });
     expect(prisma.$disconnect).toHaveBeenCalledTimes(1);
 
-    // Restore Math.random
     jest.spyOn(global.Math, 'random').mockRestore();
   });
 
@@ -62,7 +60,6 @@ describe('POST /api/roll', () => {
     prisma.user.findUnique.mockResolvedValue(mockUser);
     prisma.user.update.mockResolvedValue(mockUser);
 
-    // Mock Math.random to return a value that selects 'Keep' (index 1)
     jest.spyOn(global.Math, 'random').mockReturnValue(0.5);
 
     const response = await POST(mockRequest);
@@ -93,7 +90,6 @@ describe('POST /api/roll', () => {
     prisma.user.findUnique.mockResolvedValue(mockUser);
     prisma.user.update.mockResolvedValue(mockUpdatedUser);
 
-    // Mock Math.random to return a value that selects 'Bankrupt!' (index 2)
     jest.spyOn(global.Math, 'random').mockReturnValue(0.9);
 
     const response = await POST(mockRequest);
