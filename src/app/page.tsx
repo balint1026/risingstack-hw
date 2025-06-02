@@ -23,28 +23,25 @@ export default function Home() {
   };
 
   return (
-<div className="min-h-screen flex items-center justify-center bg-[var(--background)] text-[var(--foreground)]">
-  <div className="bg-[var(--surface)] p-6 rounded shadow-md">
-    <h1 className="text-2xl mb-4">Pick a Username</h1>
-    <p className="mb-4 text-[var(--muted)]">Enter a username to start or continue your game.</p>
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-        className="border border-[var(--muted)] bg-transparent text-[var(--foreground)] p-2 w-full mb-4 placeholder-[var(--muted)]"
-        placeholder="Your username"
-      />
-      <button
-        type="submit"
-        className="bg-[var(--accent)] text-white p-2 rounded w-full hover:bg-blue-600"
-        disabled={!username}
-      >
-        Start Game
-      </button>
-    </form>
-  </div>
-</div>
-
+    <div className="min-h-screen flex flex-col items-center justify-center p-4">
+      <h1 className="text-4xl font-bold mb-4">Welcome to Wheel of Fortune</h1>
+      <p className="text-gray-300 mb-8 text-lg">Enter your username to start playing</p>
+      <form onSubmit={handleSubmit} className="w-full max-w-md">
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="border border-gray-600 bg-gray-700 text-white p-3 w-full mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Your username"
+        />
+        <button
+          type="submit"
+          className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-lg w-full font-semibold transition-colors"
+          disabled={!username}
+        >
+          Start Game
+        </button>
+      </form>
+    </div>
   );
 }
