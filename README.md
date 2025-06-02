@@ -2,6 +2,7 @@
 
 A web-based betting game built with **Next.js**, featuring an interactive spinning wheel, real-time leaderboard, and persistent player data using **Prisma**. Styled with **Tailwind CSS** and tested with **Jest**.
 
+You can access the project [here](https://risingstack-hw.vercel.app)
 ---
 
 ## 🚀 Features
@@ -14,11 +15,6 @@ A web-based betting game built with **Next.js**, featuring an interactive spinni
 
 - **👤 User Management**:  
   Player data (username, balance) is stored in a database via Prisma.
-
-- **🔌 API Endpoints**:
-  - `POST /api/user`: Create or retrieve a player.
-  - `POST /api/roll`: Process a bet and return outcome.
-
 - **📈 Leaderboard**:  
   View top players ranked by balance via `/leaderboard`.
 
