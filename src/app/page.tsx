@@ -6,9 +6,9 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const [username, setUsername] = useState('');
   const router = useRouter();
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     const res = await fetch('/api/user', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

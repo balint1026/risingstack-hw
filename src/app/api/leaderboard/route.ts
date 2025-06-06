@@ -1,7 +1,5 @@
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@/generated/prisma';
-
-const prisma = new PrismaClient();
+import { f } from '@/app/lib/prisma';
 
 export async function GET() {
   try {
@@ -14,7 +12,5 @@ export async function GET() {
   } catch (error) {
     console.error('Error in /api/leaderboard:', error);
     return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
-  } finally {
-    await prisma.$disconnect();
   }
 }
